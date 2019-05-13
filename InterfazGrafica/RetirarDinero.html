@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard Vision General</title>
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/dashboardgeneral.css">
+    <link rel="stylesheet" href="css/cargardinero.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/sitio.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/sitio.css" />
+    <!-- <link rel="stylesheet" href="css/footer.css" /> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/sitio.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+                                         para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="55" height="40"
+                    style="margin-top:-7px" />
+            </a>
+
+            <a class="navbar-brand" href="#"><strong>AGILEPAY</strong></a>
+        </div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                                         otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <a href="Dashboard Vision General_2.html">
+                    <button class="btn navbar-btn ">
+                        <span class="glyphicon glyphicon-repeat"></span> Inicio
+                    </button>
+
+                </a>
+                <a href="InicioSesion.html">
+                    <button class="btn navbar-btn ">
+                        <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
+                    </button>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <br />
+
+    <div class="container-fluid">
+        <div class="row">
+            <h3>
+                Retirar dinero
+            </h3>
+            <h5>
+                <small>Seleccione cuenta de la cual desea retirar </small>
+            </h5>
+            <div class="col-md-12 col-xs-12">
+
+                <div class="cajaCuentas cuentasCentrado">
+                    <div class="cajaCuenta">
+                        <figure>
+                            <img src="img/Banco de Iconos/080_USD_Money.svg" alt="Logo Agilepay" width="100"
+                                height="100" />
+                        </figure>
+                        <br />
+                        <label>Número de cuenta:</label> <strong>94785412645</strong>
+                    </div>
+                    <div class="cajaCuenta">
+                        <figure>
+                            <img src="img/Banco de Iconos/090_Bitcoin_Money.svg" alt="Logo Agilepay" width="100"
+                                height="100" />
+                        </figure>
+                        <br />
+                        <label>Número de cuenta:</label> <strong>94785412645</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <!--Captura datos de retiro de saldo-->
+                <form action="Dashboard Vision General.html">
+                    <div class="SeccionRegistro">
+                        <legend>
+                            <h3>Saldo a retirar</h3>
+                        </legend>
+                        <label>Disponible</label><br />
+                        <div class="mostrarSaldo">
+                            <span> 100 usd </span>
+                        </div>
+                        <label>Retirar</label><br />
+                        <input type="text" /><br />
+                        <legend>
+                            <h3>Seleccionar metodo de retiro</h3>
+                        </legend>
+                        <div class="cuentasCentrado margin">
+                            <div class="CajaTipoPago CentradoAutomatico">
+                                <figure>
+                                    <img src="img/Banco de Iconos/100_Tarjeta_Credito.svg" alt="Logo Agilepay"
+                                        width="60" height="60" />
+                                </figure>
+                            </div>
+                            <div class="CajaTipoPago CentradoAutomatico">
+                                <figure>
+                                    <img src="img/Banco de Iconos/110_Transferencia_Bancaria.svg" alt="Logo Agilepay"
+                                        width="60" height="60" />
+                                </figure>
+                            </div>
+                            <div class="CajaTipoPago CentradoAutomatico">
+                                <figure>
+                                    <img src="img/Banco de Iconos/120_Cupon.svg" alt="Logo Agilepay" width="60"
+                                        height="60" />
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="sec-40">
+                    <div class="SeccionRegistro retirardinero">
+                        <br />
+                        <legend><small>Datos del metodo de Retiro</small></legend><br>
+                        <label>Dato 1</label><br />
+                        <input type="text" />
+                        <label>Dato 2</label><br />
+                        <input type="text" /><br />
+                        <label>Dato 3</label><br />
+                        <input type="text" />
+                        <label>Dato 4</label><br />
+                        <input type="text" /><br />
+                        <br />
+                    </div>
+                    <div>
+                        <button class="btn" style="float:right;margin-bottom:39px"><span
+                                class="glyphicon glyphicon-download"></span> Retirar saldo</button></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--PIE DE PAGINA-->
+    <footer>
+        <div class="container-fluid">
+            <div class="col-md-12 col-xs-12">
+                <a href="TerminosDeUso.html" class="footerEnlace"> Términos de uso</a>
+                <a href="PoliticaPrivacidad.html" class="footerEnlace">Política de privacidad </a>
+            </div>
+    </footer>
+    <!---->
+</body>
+
+</html>

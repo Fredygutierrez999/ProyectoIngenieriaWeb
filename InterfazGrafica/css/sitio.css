@@ -1,0 +1,485 @@
+html {
+    height: 100%;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(248, 246, 246);
+    font-family: 'Slabo 13px', serif;
+    min-height: 100%;
+    padding-top: 35px;
+}
+
+
+nav ,.navbar-default{
+    position: fixed;
+    background-color: rgb(205, 205, 205);
+    top: 0px;
+    height: 45px;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    box-shadow: 2px -2px 9px 5px #9736FD;
+}
+
+nav ul {
+    text-decoration: none;
+    padding: 0px 20px 0px 0px;
+    margin: 5px 0px 0px 15px;
+}
+
+nav ul li {
+    text-decoration: none;
+    list-style: none;
+    float: left;
+}
+
+nav ul .logo {
+    float: left;
+}
+.navbar-brand{
+    font-family: 'PT Serif Caption', serif;
+    color: #000;
+    font-size: 20px;
+    margin-left: 1px;
+    padding-left: 1px;
+}
+nav ul .titulo {
+    float: left;
+    font-family: 'PT Serif Caption', serif;
+    font-size: 27px;
+    margin-left: 20px;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+}
+
+nav ul .Item_menu {
+    float: right;
+    font-family: 'Suez One', serif;
+    margin-left: 5px;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    border: 1px solid rgb(205, 205, 205);
+    padding: 3px 10px 5px;
+    border-radius: 4px;
+    color: black;
+    background-color: #63baac;
+}
+
+nav ul .Item_menu:hover {
+    cursor: pointer;
+}
+
+.titulo :before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo figure {
+    display: flex;
+    padding: 0px !important;
+    margin: 0px !important;
+    width: 30px
+}
+
+nav ul li .salida {
+    float: right;
+}
+
+footer section {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25px;
+}
+
+.CentradoPantalla {
+    width: 150px;
+}
+
+.CentradoAutomatico {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.SeccionLogin {
+    width: 390px;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 1px solid rgb(205, 205, 205);
+    box-shadow: 5px 5px 15px 0px #695c5c;
+}
+
+.SeccionLogin h3 {
+    font-family: 'PT Serif Caption', serif;
+    font-size: 27px;
+    text-align: center
+}
+h1,h2,h3,h5{
+    font-family: 'PT Serif Caption', serif;
+    font-size: 27px;
+    text-align: center;
+    color:black;
+}
+
+.SeccionLogin .CentradoAutomatico {
+    margin-right: auto;
+    width: 150px;
+    margin-left: 60px !important;
+}
+
+.SeccionLogin form {
+    padding: 20px;
+}
+
+.SeccionRegistro form {
+    padding: 20px;
+}
+.SeccionRegistro .TipoPago{    
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+    padding-bottom: 70px;
+}
+label {
+    font-size: 15px;
+    text-align: left !important;
+    font-family: 'Suez One', serif;
+}
+
+input[type=email], input[type=password], input[type=text], input[type=date] {
+    padding: 2px 20px 0px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgb(205, 205, 205);
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    
+}
+
+input[type=submit] {
+    margin: 5px;
+    padding: 2px 15px 2px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgb(205, 205, 205);
+    height: 35px;
+    font-size: 16px;
+    font-family: 'Suez One', serif;
+    text-align: center;
+    float: right;
+    background-color: #62bAAC;
+    color: black;
+    cursor: pointer;
+    font-family: 'Suez One', serif;
+}
+
+select, textarea {
+    padding: 2px 20px 0px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgb(205, 205, 205);
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+}
+
+.fila {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+a {
+    font-size: 13px;
+}
+
+.sec-100 {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%
+}
+
+.sec-60 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 150px;
+    min-height: 100%;
+    height: 400px;
+    padding-bottom: 10px;
+}
+
+.sec-60 figure {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.sec-60 p {
+    margin: 50px;
+    text-align: justify
+}
+
+.sec-40 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;   
+    min-height: 150px;
+    min-height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 50px;
+    margin-top: 3px;    
+}
+
+.sec-50 {
+    width: 49%;
+    float: left;
+    min-height: 150px;
+    min-height: 100%;
+    height: 450px;
+}
+
+.sec-50 figure {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.sec-50 p {
+    margin: 50px;
+    text-align: justify
+}
+
+.centrado {
+    text-align: center
+}
+
+.contenedorCuenta {   
+    height: auto; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;     
+}
+
+.cajaCuentas {
+    width: auto;    
+         
+}
+
+.cajaCuenta {
+    width: auto;
+    min-height: 40px;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #62bAAC;
+    margin: 5px;
+    border-radius: 10px;
+    background-color:#62bAAC; 
+    box-shadow: 5px 5px 15px 0px #695c5c;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.CajaTipoPago {    
+    width: auto;   
+    border: 1px solid #62bAAC;
+    border-radius: 10px;
+    margin: 10px;
+    background-color:#62bAAC; 
+    box-shadow: 5px 5px 15px 0px #695c5c;
+    display: inline-block;
+}
+
+.CajaTipoPago figure {
+    padding-top: 0px !important;
+    padding: 15px;
+    padding-left: auto;
+    padding-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+
+legend {
+    text-align: center
+}
+
+figure {
+    text-align: center
+}
+
+.text-centrado {
+    text-align: center
+}
+
+.iconos { 
+    border: 1px solid rgb(205, 205, 205);
+    float: center;   
+    border-radius: 15%;
+    margin-top: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 2px -2px 9px 3px #9736FD;
+}
+
+.fondoBlanco {
+    background-color: white;
+    margin-left: 10px;
+    border-radius: 10px;
+    height: auto !important;
+    padding-bottom: 20px;
+}
+
+button {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #62bAAC;
+    color: black;
+    cursor: pointer;
+    font-family: 'Suez One', serif;
+    margin-top: 10px;    
+}
+
+.contenidoCentrado {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 1px solid rgb(205, 205, 205);
+    box-shadow: 5px 5px 15px 0px #695c5c;
+}
+
+.fotoPerfil {
+    border: 1px solid rgb(239, 233, 233);
+    border-radius: 20px;
+    box-shadow: 2px 2px 3px #ccc3c3;
+}
+footer {
+    position: fixed;
+    background-color: rgb(205, 205, 205);
+    margin-top: 25px;
+    padding-top: 20px;
+    bottom: 0px;
+    height: 25px;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    box-shadow: 2px -2px 9px 0px #9736FD;
+}
+.card-iconos{
+    margin: 10px;
+    width: 50%;
+    height: 25%;
+    border-radius: 15%;
+    background-color: #62bAAC;
+}
+
+.retirardinero{
+ margin: 10px;
+}
+.cuentasCentrado{
+    text-align: center;
+}
+
+.margin{
+    margin-bottom: 70px;     
+}
+.mostrarSaldo{
+    border-radius:35%;
+    min-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding: auto;
+    top:50%;
+    box-shadow: 5px 5px 15px 0px #695c5c;
+    background-color:#9736FD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mostrarSaldoConvertido{
+    border-radius:35%;
+    min-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding: auto;
+    top:50%;
+    box-shadow: 5px 5px 15px 0px #695c5c;
+    background-color:#63baac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mostrarSaldoConvertido span { 
+    color:black;
+    display: inline-block;
+    font-family: 'Suez One', serif;
+    font-size: 15px;
+    }
+.mostrarSaldo span { 
+color:black;
+display: inline-block;
+font-family: 'Suez One', serif;
+font-size: 15px;
+}
+
+
+.p-t-4{
+    padding-top: 40px;
+}
+
+.m-t-4{
+    margin-top: 40px;
+}
+
+.BorderRadius{
+    border-radius: 20px;
+}
+p{
+    text-align: justify
+}
+
+footer{
+    padding: 0px
+}
+
+.footerEnlace{
+    float: right;
+    padding: 5px 20px;
+}

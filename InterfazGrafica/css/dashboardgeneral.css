@@ -1,0 +1,32 @@
+.image-profile{
+ border: solid 1px;
+ width: 25%;
+ align-items: center;
+ height: 180px; 
+ background-color: #FEE9FF;
+ margin-top: 55px;
+}
+.img-actions{
+  height: 150px;
+  width: 150px;
+  background-color:#FEE9FF;
+  border-radius: 20%;   
+  display: inline;
+  border-image: 20px;   
+  }
+section{
+  display: inline-block;      
+  text-align: center; 
+}
+figure{
+  display: inline-block;
+  color:#1CA2D9;
+  font-style: oblique;
+  font-size: 40px; 
+  vertical-align: center;
+  margin-top: 15px;
+}
+label{
+  align-items: center;
+  font-family: 'Suez One', serif;
+}

@@ -1,0 +1,18 @@
+button{
+    background-color: #62BAAC;
+    border-radius:5px;
+    padding: 10px;
+    text-decoration-color: #9736fd; 
+    font-family: 'Suez One', serif;
+             
+    align-items: center;
+    
+}
+.cerrar{        
+    margin-left: 850px;
+    margin-top: -50px;
+}
+.incidencia{
+    margin-top: 35px;
+    margin-bottom: 35px;
+}

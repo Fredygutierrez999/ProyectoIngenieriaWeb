@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard Vision General</title>
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/dashboardgeneral.css">
+    <link rel="stylesheet" href="css/cargardinero.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/sitio.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/sitio.css" />
+    <!-- <link rel="stylesheet" href="css/footer.css" /> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/sitio.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+                                         para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="55" height="40"
+                    style="margin-top:-7px" />
+            </a>
+
+            <a class="navbar-brand" href="#"><strong>AGILEPAY</strong></a>
+        </div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                                         otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <a href="Dashboard Vision General_2.html">
+                    <button class="btn navbar-btn ">
+                        <span class="glyphicon glyphicon-repeat"></span> Inicio
+                    </button>
+
+                </a>
+                <a href="InicioSesion.html">
+                    <button class="btn navbar-btn ">
+                        <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
+                    </button>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <br />
+
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom: 50px">
+            <h3 style="text-align: center">CONSULTAR SALDO CUENTAS</h3>
+            <h3> <small>Bienvenido a la seccion para consultar el saldo en la cuenta</small></h3>
+            <div class="col-md-6 col-xs-12">
+
+                <label style="text-align: center">Seleccione la cuenta</label><br>
+                <div class="cajaCuentas cuentasCentrado">
+                    <div class="cajaCuenta">
+                        <figure>
+                            <div>
+                                <img src="img/Banco de Iconos/080_USD_Money.svg" alt="" width="70" height="70">
+                            </div>
+                            <figcaption>
+                                <p style="color:black">USD</p>
+                            </figcaption>
+
+                        </figure>
+                    </div>
+                    <br>
+                    <div class="cajaCuenta ">
+                        <figure>
+                            <div>
+                                <img src="img/Banco de Iconos/090_Bitcoin_Money.svg" alt="" width="70" height="70">
+                            </div>
+                            <figcaption>
+                                <p style="color:black">BTC</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <section>
+                    <label for="">Saldo Actual</label> <br>
+                    <div class="mostrarSaldo">
+                        <span> 100 usd </span>
+                    </div><br>
+                    <label for="">Saldo Convertido</label> <br>
+                    <div class="mostrarSaldoConvertido">
+                        <span> 0.00001 BTC </span>
+                    </div><br>
+                    <div class="table-responsive">
+                        <table class="table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Fecha movimientos</th>
+                                    <th>Hora</th>
+                                    <th>Valor movimientos</th>
+                                    <th>Tipo moneda</th>
+                                    <th>Valor comisión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 250.000</td>
+                                    <td>USD</td>
+                                    <td>$ 12</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 250.000</td>
+                                    <td>BTC</td>
+                                    <td>$ 12</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 280.000</td>
+                                    <td>USD</td>
+                                    <td>$ 13</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 290.000</td>
+                                    <td>USD</td>
+                                    <td>$ 13</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 290.000</td>
+                                    <td>USD</td>
+                                    <td>$ 13</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 250.000</td>
+                                    <td>BTC</td>
+                                    <td>$ 12</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 250.000</td>
+                                    <td>USD</td>
+                                    <td>$ 12</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 280.000</td>
+                                    <td>USD</td>
+                                    <td>$ 13</td>
+                                </tr>
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 290.000</td>
+                                    <td>USD</td>
+                                    <td>$ 13</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2019-04-13</td>
+                                    <td>06:00</td>
+                                    <td>$ 290.000</td>
+                                    <td>USD</td>
+                                    <td>$ 13</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!--PIE DE PAGINA-->
+    <footer>
+            <div class="container-fluid">
+                <div class="col-md-12 col-xs-12">
+                    <a href="TerminosDeUso.html" class="footerEnlace"> Términos de uso</a>
+                    <a href="PoliticaPrivacidad.html" class="footerEnlace">Política de privacidad </a>
+                </div>
+        </footer>
+        <!---->
+
+</body>
+
+</html>

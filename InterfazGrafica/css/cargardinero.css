@@ -1,0 +1,21 @@
+h2{
+    text-align: center;
+    background-color: white;
+}
+p{
+    font-size: 15px;
+    font-family: 'Slabo 13px', serif;
+ 
+}
+div{
+    margin-top: 2px;
+    padding-top: 2px;
+}
+figure{
+    margin-top: 2px;
+    padding-top: 5px;
+}
+br{
+    margin-top: 2px;
+    padding-top: 2px;
+}
