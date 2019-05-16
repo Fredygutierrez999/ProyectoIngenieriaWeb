@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Ingreso";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-logo">
+                    <img src="~/Imagenes/LogoAplicacion.png" width="100" />
+                </span>
+
+                <span class="login100-form-title p-b-34 p-t-27">
+                    Iniciar sesión
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter username">
+                    <input class="input100 m-l-20" type="text" name="username" placeholder="Usuario">
+                    <span class="focus-input100 fa fa-user text-white" ></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <input class="input100 m-l-20" type="password" name="pass" placeholder="Contraseña">
+                    <span class="focus-input100 fa fa-unlock text-white"></span>
+                </div>
+                
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Ingresar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
