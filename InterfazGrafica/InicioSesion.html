@@ -21,11 +21,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
-
 </head>
 
 <body>
-    <div class="container-fluid">
+
+
+    <div class="container-fluid" ng-app="myAplicacion" ng- ng-controller="ctrSeguridad">
         <div class="row">
             <div class="col-md-12 col-xs-12 contenidoCentrado" style="">
                 <section>
@@ -41,18 +42,18 @@
                         <!--Captura datos de inicio de sesión-->
                         <form action="Dashboard Vision General_2.html">
                             <label>Usuario</label><br />
-                            <input type="text" /><br />
+                            <input type="text" ng-model="Nombre_Usuario" /><br />
                             <label>Clave</label><br />
-                            <input type="password" /><br /><br />
+                            <input type="password"  ng-model="Contrasena" /><br /><br />
                             <a href="Registro.html" style="text-align:center">¿No estás registrado ?</a> <br />
 
                         </form>
                         <div style="text-align: center">
-                            <a href="Dashboard Vision General_2.html"><button class="btn"><span
-                                        class="glyphicon glyphicon-user"></span> Ingresar</button></a>
-                            <a href="DashboardAdministrador.html"><button class="btn"><span
-                                        class="glyphicon glyphicon-list-alt"></span> Ingresar como
-                                    administrador</button> </a>
+                            <div ng-click="funValidarUsuario()">
+                                <button class="btn">
+                                    <span class="glyphicon glyphicon-user"></span> Ingresar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -68,7 +69,35 @@
                 <a href="PoliticaPrivacidad.html" class="footerEnlace">Política de privacidad </a>
             </div>
     </footer>
+    
+    
+    <!--@* FRAGMENTO HTML PARA POPUP *@ -->
+    <div class="modal" id="popupMuestra" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" style="z-index:1000000">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="padding: 0px 10px 0px 10px;">
+            <div class="modal-content border" style="box-shadow: 4px 3px 6px 1px #b58e8e;">
+                <div class="modal-header bg-warning" id="popupHeaderGenerico">
+                    <h5 class="modal-title" id="TituloPopupMensajeGenerico"></h5>
+                    <button type="button" class="close " data-dismiss="modal" aria-label="Close" style="display:none">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="contenidoPopupMensajeGenerico" style="padding: 5px 20px 0px 15px;">
+
+                </div>
+                <div class="modal-footer p-2">
+                    <button id="btnAceptarSiMensajeGenerico" onclick="return eventoAceptarSi();" tabindex="1" type="button" class="btn btn-sm small-sm   p-0 pl-2 pr-2">Aceptar</button>
+                    <button id="btnCancelarNoSiMensajeGenerico" style="display:none" onclick="return eventoCancelarNoSi();" tabindex="2" type="button" class="btn btn-sm btn-secondary small-sm   p-0 pl-2 pr-2" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!---->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="js/Aplicacion.js"></script>
+    <script src="js/GestorMensajes.js"></script>
+    
+
 </body>
 
 </html>

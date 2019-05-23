@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="css/sitio.css" />
     <!-- <link rel="stylesheet" href="css/footer.css" /> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
 
     <link rel="stylesheet" href="css/sitio.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption|Slabo+13px|Suez+One" rel="stylesheet">
 </head>
 
@@ -37,7 +37,7 @@
             </button>
             <a class="navbar-brand" href="#">
                 <img src="img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="55" height="40"
-                    style="margin-top:-7px" />
+                     style="margin-top:-7px" />
             </a>
 
             <a class="navbar-brand" href="#"><strong>AGILEPAY</strong></a>
@@ -77,76 +77,79 @@
                     REGISTRARSE
                 </h2>
             </div>
-            <div class="col-md-12 col-xs-12">
-                <div class="row">
-                    <div class="col-md-6 col-xs-12">
-                        <section class="sec-60">
-                            <figure>
-                                <legend>
-                                    <h2>AGILEPAY</h2>
-                                </legend>
-                                <img src="img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="20%"
-                                    height="20%" class="CentradoAutomatico" />
-                            </figure>
-                            <p>
-                                <strong>AGILEPAY</strong> respeta su privacidad y se compromete a proteger sus datos
-                                personales. En nuestra política de privacidad le informaremos sobre cómo cuidamos sus
-                                datos
-                                personales cuando visita uno de nuestros sitios web (independientemente de dónde lo
-                                visite) y le informa sobre sus derechos de privacidad y cómo la ley lo protege.
-                            </p>
-                        </section>
-                        <section class="sec-40">
+            <div class="col-md-12 col-xs-12" ng-app="myAplicacion" ng-controller="ctrSeguridad">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <section class="sec-60">
+                                <figure>
+                                    <legend>
+                                        <h2>AGILEPAY</h2>
+                                    </legend>
+                                    <img src="img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="20%"
+                                         height="20%" class="CentradoAutomatico" />
+                                </figure>
+                                <p>
+                                    <strong>AGILEPAY</strong> respeta su privacidad y se compromete a proteger sus datos
+                                    personales. En nuestra política de privacidad le informaremos sobre cómo cuidamos sus
+                                    datos
+                                    personales cuando visita uno de nuestros sitios web (independientemente de dónde lo
+                                    visite) y le informa sobre sus derechos de privacidad y cómo la ley lo protege.
+                                </p>
+                            </section>
+                            <section class="sec-40">
 
-                            <div class="SeccionRegistro CentradoAutomatico">
-                                <form action="Dashboard Vision General_2.html">
-                                    <legend><small>Datos de registro</small></legend> <br /><br />
-                                    <label>Tipo identificación</label><br />
-                                    <select>
-                                        <option value="">--Seleccione tipo--</option>
-                                        <option value="">Cédula de ciudadania</option>
-                                        <option value="">Tarjeta de identidad</option>
-                                        <option value="">Pasaporte</option>
-                                    </select>
-                                    <br />
-                                    <label>Identificación</label><br />
-                                    <input type="text" /><br />
-                                    <label>Nombres</label><br />
-                                    <input type="text" /><br />
-                                    <label>Apellidos</label><br />
-                                    <input type="text" /><br />
-                                </form>
-                            </div>
-                        </section>
+                                <div class="SeccionRegistro CentradoAutomatico">
+                                    <form action="Dashboard Vision General_2.html">
+                                        <legend><small>Datos de registro</small></legend> <br /><br />
+                                        <label>Tipo identificación</label><br />
+                                        <select ng-model="tipo_identificacion">
+                                            <option value="CC">Cédula de ciudadania</option>
+                                            <option value="TI">Tarjeta de identidad</option>
+                                            <option value="PA">Pasaporte</option>
+                                        </select>
+                                        <br />
+                                        <label>Identificación</label><br />
+                                        <input type="text" ng-model="identificacion" placeholder="Número identificación" required /><br />
+                                        <label>Nombres</label><br />
+                                        <input type="text" ng-model="Nombre" placeholder="Nombres" required /><br />
+                                        <label>Apellidos</label><br />
+                                        <input type="text" ng-model="Apellido" placeholder="Apellidos" required /><br />
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <section class="sec-40">
+                                <div class="SeccionRegistro CentradoAutomatico">
+                                    <!--Captura datos de registro-->
+
+                                    <form action="Dashboard Vision General_2.html">
+                                        <label>Correo electrónico</label><br />
+                                        <input type="email" ng-model="email" placeholder="Correo electrónico" required />
+
+                                        <label>Fecha nacimiento</label><br />
+                                        <input type="date" ng-model="fecha_nacimiento" placeholder="Fecha nacimiento" required />
+
+                                        <label>Clave</label><br />
+                                        <input type="password" ng-model="Contrasena" placeholder="Contraseña" required />
+
+                                        <label>Confirmar clave</label><br />
+                                        <input type="password" ng-model="Contrasena_Transaccion" placeholder="Confirmar contraseña" required />
+
+                                        <br />
+                                        <br />
+                                        <input type="checkbox" required />
+                                        <a href="Registrao.hmtl">Acepto términos</a>
+                                        <div class="btn" ng-click="funGuardarUsuario()">
+                                            Ingresar
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
-                        <section class="sec-40">
-                            <div class="SeccionRegistro CentradoAutomatico">
-                                <!--Captura datos de registro-->
-
-                                <form action="Dashboard Vision General_2.html">
-                                    <label>Correo electrónico</label><br />
-                                    <input type="email" />
-
-                                    <label>Fecha nacimiento</label><br />
-                                    <input type="date" />
-
-                                    <label>Clave</label><br />
-                                    <input type="password" />
-
-                                    <label>Confirmar clave</label><br />
-                                    <input type="password" />
-
-                                    <br />
-                                    <br />
-                                    <input type="checkbox" />
-                                    <a href="Registrao.hmtl">Acepto términos</a>
-                                    <input type="submit" value="Ingresar" />
-                                </form>
-                            </div>
-                        </section>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
 
@@ -159,6 +162,31 @@
                 </div>
         </footer>
         <!---->
+        <!--@* FRAGMENTO HTML PARA POPUP *@ -->
+        <div class="modal" id="popupMuestra" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" style="z-index:1000000">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="padding: 0px 10px 0px 10px;">
+                <div class="modal-content border" style="box-shadow: 4px 3px 6px 1px #b58e8e;">
+                    <div class="modal-header bg-warning" id="popupHeaderGenerico">
+                        <h5 class="modal-title" id="TituloPopupMensajeGenerico"></h5>
+                        <button type="button" class="close " data-dismiss="modal" aria-label="Close" style="display:none">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="contenidoPopupMensajeGenerico" style="padding: 5px 20px 0px 15px;">
+
+                    </div>
+                    <div class="modal-footer p-2">
+                        <button id="btnAceptarSiMensajeGenerico" onclick="return eventoAceptarSi();" tabindex="1" type="button" class="btn btn-sm small-sm   p-0 pl-2 pr-2">Aceptar</button>
+                        <button id="btnCancelarNoSiMensajeGenerico" style="display:none" onclick="return eventoCancelarNoSi();" tabindex="2" type="button" class="btn btn-sm btn-secondary small-sm   p-0 pl-2 pr-2" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+        <script src="js/Aplicacion.js"></script>
+        <script src="js/GestorMensajes.js"></script>
 </body>
 
 </html>

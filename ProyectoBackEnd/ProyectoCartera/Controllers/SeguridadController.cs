@@ -4,7 +4,9 @@ using System.Threading;
 using System.Web.Http;
 using ProyectoCartera.App_Start;
 using ProyectoCartera.Models.ModeloClases.Seguridad;
-
+using ProyectoCartera.Models.ControladorDeDatos;
+using ProyectoCartera.Models.ModeloClases;
+using ProyectoCartera.Models.AccesoADatos;
 
 namespace ProyectoCartera.Controllers
 {
@@ -12,10 +14,23 @@ namespace ProyectoCartera.Controllers
     /// login controller class for authenticate users
     /// </summary>
     [AllowAnonymous]
-    [RoutePrefix("api/login")]
+    [RoutePrefix("api/Seguridad")]
     public class SeguridadController : ApiController
     {
+        private DataSeguridad objDataSeguridad;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public SeguridadController()
+        {
+            this.objDataSeguridad = new DataSeguridad();
+        }
+
+        /// <summary>
+        /// Realiza prueba de conexión con el api
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("echoping")]
         public IHttpActionResult EchoPing()
@@ -23,6 +38,11 @@ namespace ProyectoCartera.Controllers
             return Ok(true);
         }
 
+
+        /// <summary>
+        /// Indica si el usuario se encuentra registrado
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("echouser")]
         public IHttpActionResult EchoUser()
@@ -31,42 +51,99 @@ namespace ProyectoCartera.Controllers
             return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
         }
 
-        [HttpPost]
+
+        /// <summary>
+        /// Autentica el usuario por nombre y clave
+        /// </summary>
+        /// <param name="login">Objeto usuario</param>
+        /// <returns></returns>
+        [HttpGet]
         [Route("authenticate")]
-        public IHttpActionResult Authenticate(Usuarios login)
+        public IHttpActionResult Authenticate(string Nombre_Usuario, string Contrasena)
         {
-            if (login == null)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-
-            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
-            var isUserValid = (login.Usuario == "user" && login.Clave == "123456");
-            if (isUserValid)
+            ResultadoJSON _resultado = null;
+            try
             {
-                var rolename = "Developer";
-                var token = TokenGenerator.GenerateTokenJwt(login.Usuario, rolename);
-                return Ok(token);
-            }
+                Usuarios login = new Usuarios() { Nombre_Usuario = Nombre_Usuario, Contrasena = Contrasena };
+                if (login == null)
+                    throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
-            var isTesterValid = (login.Usuario == "test" && login.Clave == "123456");
-            if (isTesterValid)
+                ///Valida usuario en la BD
+                var _respuesta = this.objDataSeguridad.ValidarUsuario(login);
+                if (_respuesta.ResultadoProceso)
+                {
+                    var token = TokenGenerator.GenerateTokenJwt(login.Nombre_Usuario, login.Tipo_Usuario.ToString(), login.identificacion.ToString());
+                    _resultado = new ResultadoJSON() { ResultadoProceso = true, objetoData = token };
+                }
+                else
+                {
+                    _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = _resultado.CadenaError };
+                }
+            }
+            catch (Exception ex)
             {
-                var rolename = "Tester";
-                var token = TokenGenerator.GenerateTokenJwt(login.Usuario, rolename);
-                return Ok(token);
+                _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = ex.Message };
             }
+            return Json(_resultado);
+        }
 
-            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
-            var isAdminValid = (login.Usuario == "admin" && login.Clave == "123456");
-            if (isAdminValid)
+
+
+        /// <summary>
+        /// Autentica el usuario por nombre y clave
+        /// </summary>
+        /// <param name="login">Objeto usuario</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("registrar")]
+        public IHttpActionResult registrar(
+            int identificacion,
+            string tipo_identificacion,
+            string Nombre_Usuario,
+            string Contrasena,
+            string Contrasena_Transaccion,
+            string Nombre,
+            string Apellido,
+            string genero,
+            string email,
+            string fecha_nacimiento
+        )
+        {
+            ResultadoJSON _resultado = null;
+            try
             {
-                var rolename = "Administrator";
-                var token = TokenGenerator.GenerateTokenJwt(login.Usuario, rolename);
-                return Ok(token);
-            }
+                Usuarios login = new Usuarios()
+                {
+                    identificacion = identificacion,
+                    tipo_identificacion = tipo_identificacion,
+                    Nombre_Usuario = email,
+                    Contrasena = Contrasena,
+                    Contrasena_Transaccion = Contrasena_Transaccion,
+                    Nombre = Nombre,
+                    Apellido = Apellido,
+                    genero = genero,
+                    email = email,
+                    fecha_nacimiento = Convert.ToDateTime(fecha_nacimiento)
+                };
 
-            // Unauthorized access 
-            return Unauthorized();
+                ///Valida usuario en la BD
+                var _respuesta = this.objDataSeguridad.ValidarUsuario(login);
+                if (_respuesta.ResultadoProceso)
+                {
+                    var token = TokenGenerator.GenerateTokenJwt(login.Nombre_Usuario, login.Tipo_Usuario.ToString(),login.identificacion.ToString());
+                    _resultado = new ResultadoJSON() { ResultadoProceso = true, objetoData = token };
+                }
+                else
+                {
+                    _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = _resultado.CadenaError };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = ex.Message };
+            }
+            return Json(_resultado);
         }
 
     }

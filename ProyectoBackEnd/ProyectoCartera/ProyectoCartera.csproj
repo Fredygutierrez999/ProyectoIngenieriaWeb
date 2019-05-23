@@ -191,6 +191,7 @@
     <Compile Include="Models\AccesoADatos\Datos.cs" />
     <Compile Include="Models\AccesoADatos\Dato_Reflectar.cs" />
     <Compile Include="Models\ControladorDeDatos\DataSeguridad.cs" />
+    <Compile Include="Models\ModeloClases\ResultadoJSON.cs" />
     <Compile Include="Models\ModeloClases\Seguridad\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

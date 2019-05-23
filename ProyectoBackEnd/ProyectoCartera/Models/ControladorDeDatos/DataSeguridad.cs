@@ -79,7 +79,7 @@ namespace ProyectoCartera.Models.ControladorDeDatos
         {
             List<string> lstErrores = new List<string>();
 
-            if (string.IsNullOrEmpty(objUsuarios.Usuario))
+            if (string.IsNullOrEmpty(objUsuarios.Nombre_Usuario))
             {
                 lstErrores.Add("Debe ingresar el usuario de ingreso al sistema");
             }
@@ -87,11 +87,11 @@ namespace ProyectoCartera.Models.ControladorDeDatos
             {
                 lstErrores.Add("Debe ingresar el nombre del usuario");
             }
-            if (string.IsNullOrEmpty(objUsuarios.Clave))
+            if (string.IsNullOrEmpty(objUsuarios.Contrasena))
             {
                 lstErrores.Add("Debe ingresar la contraseña.");
             }
-            if (string.IsNullOrEmpty(objUsuarios.CorreoElectronico))
+            if (string.IsNullOrEmpty(objUsuarios.email))
             {
                 lstErrores.Add("Debe ingresar el cooreo electrónico");
             }
@@ -111,15 +111,17 @@ namespace ProyectoCartera.Models.ControladorDeDatos
                 List<string> lstUsuario = validaDatosUsuario(objUsuario);
                 if (lstUsuario.Count == 0)
                 {
-                    this.Comando = "pa_AppNetUsuarios_Guardar";
-                    this.AgregarParametro("@ID", objUsuario.ID);
-                    this.AgregarParametro("@Usuario", objUsuario.Usuario);
-                    //this.AgregarParametro("@Nombre", objUsuario.@Nombre);
-                    //this.AgregarParametro("@Imagen", objUsuario.Imagen);
-                    //this.AgregarParametro("@Correo", objUsuario.Correo);
-                    //this.AgregarParametro("@Contrasena", objUsuario.Contrasena);
-                    //this.AgregarParametro("@IDAppNetCatalogo_Valores_Estado", objUsuario.IDAppNetCatalogo_Valores_Estado);
-                    //this.AgregarParametro("@Json", objUsuario.Json);
+                    this.Comando = "pa_Usuarios_Administrar";
+                    this.AgregarParametro("@identificacion", objUsuario.identificacion);
+                    this.AgregarParametro("@tipo_identificacion", objUsuario.tipo_identificacion);
+                    this.AgregarParametro("@Nombre_Usuario", objUsuario.Nombre_Usuario);
+                    this.AgregarParametro("@Contrasena", objUsuario.Contrasena);
+                    this.AgregarParametro("@Contrasena_Transaccion", objUsuario.Contrasena_Transaccion);
+                    this.AgregarParametro("@Nombre", objUsuario.Nombre);
+                    this.AgregarParametro("@Apellido", objUsuario.Apellido);
+                    this.AgregarParametro("@genero", objUsuario.genero);
+                    this.AgregarParametro("@email", objUsuario.email);
+                    this.AgregarParametro("@fecha_nacimiento", objUsuario.fecha_nacimiento);
                     resultado objResultado = this.TablaResultado();
                     if (objResultado.ResultadoProceso)
                     {
@@ -194,11 +196,11 @@ namespace ProyectoCartera.Models.ControladorDeDatos
         private List<string> ValidaDatosUsuario(Usuarios objUsuario)
         {
             List<string> lstErrores = new List<string>();
-            if (string.IsNullOrEmpty(objUsuario.Usuario))
+            if (string.IsNullOrEmpty(objUsuario.Nombre_Usuario))
             {
                 lstErrores.Add("Debe ingresar el usuario.");
             }
-            if (string.IsNullOrEmpty(objUsuario.Clave))
+            if (string.IsNullOrEmpty(objUsuario.Contrasena))
             {
                 lstErrores.Add("Debe ingresar la clave.");
             }
@@ -210,7 +212,7 @@ namespace ProyectoCartera.Models.ControladorDeDatos
         /// </summary>
         /// <param name="objUsuario">Objeto usuario</param>
         /// <returns></returns>
-        public resultadoObjetos ValidarUsuario(Usuarios objUsuario, string strUbicacion)
+        public resultadoObjetos ValidarUsuario(Usuarios objUsuario)
         {
             resultadoObjetos objResData = new resultadoObjetos();
             try
@@ -218,21 +220,15 @@ namespace ProyectoCartera.Models.ControladorDeDatos
                 List<string> lstValidacion = this.ValidaDatosUsuario(objUsuario);
                 if (lstValidacion.Count == 0)
                 {
-                    this.Comando = "pa_AppNetUsuarios_Validar";
-                    this.AgregarParametro("@Usuario", objUsuario.Usuario);
-                    this.AgregarParametro("@Contrasena", objUsuario.Clave);
+                    this.Comando = "pa_Usuarios_ValidaUsuario";
+                    this.AgregarParametro("@Nombre_Usuario", objUsuario.Nombre_Usuario);
+                    this.AgregarParametro("@Contrasena", objUsuario.Contrasena);
                     resultado objResultado = this.TablaResultado();
                     if (objResultado.ResultadoProceso)
                     {
                         if (this.ConDatos)
                         {
                             this.asigarDatosDesdeDatatable(objUsuario, objResultado.Data);
-                            objResData = this.ConsultaUsuariosXID(objUsuario.ID);
-                            if (objResData.ResultadoProceso)
-                            {
-                                Usuarios objUsuarioSalida = ((List<Usuarios>)objResData.objetoData)[0];
-                                GenerarHTMLMenu(objUsuarioSalida, strUbicacion);
-                            }
                         }
                         else
                         {
@@ -259,89 +255,6 @@ namespace ProyectoCartera.Models.ControladorDeDatos
         }
 
 
-        /// <summary>
-        /// Carga listado de acciones al usuario
-        /// </summary>
-        /// <param name="objUsuario"></param>
-        private void GenerarHTMLMenu(Usuarios objUsuario, string strUbicacionServer)
-        {
-            //StringBuilder objHTML = new StringBuilder();
-
-            //List<AppNetMenu> lstMenu = objUsuario.Menus.FindAll(delegate (AppNetMenu objMenuPadre) { return objMenuPadre.IDPadre == 0; });
-            //objHTML.Append("<ul class=\"navbar-nav mr-auto\">");
-            //for (int i = 0; i < lstMenu.Count(); i++)
-            //{
-            //    List<AppNetMenu> lstMenuItems = objUsuario.Menus.FindAll(delegate (AppNetMenu objMenuPadre) { return objMenuPadre.IDPadre == lstMenu[i].ID; });
-            //    objHTML.Append("<li class=\"nav-item active dropdown\">");
-            //    objHTML.Append("<a class=\"nav-link text-black-50 float-right p-1 " + (lstMenuItems.Count == 0 ? "" : "dropdown-toggle") + "\" href=\"" + (lstMenuItems.Count == 0 ? lstMenu[i].Enlace + "\"" : lstMenu[i].Enlace + "\" id=\"navbarDropdown" + lstMenu[i].ID.ToString() + "\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" ") + "\" >");
-            //    if (!string.IsNullOrEmpty(lstMenu[i].Imagen))
-            //    {
-            //        objHTML.Append("<span class=\"fa icono-menu " + lstMenu[i].Imagen + " float-left pt-1 mr-1\"></span>");
-            //    }
-            //    objHTML.Append(lstMenu[i].Nombre + "</a>");
-            //    if (lstMenuItems.Count() > 0)
-            //    {
-            //        objHTML.Append("<div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink" + lstMenu[i].ID.ToString() + "\">");
-            //        for (int j = 0; j < lstMenuItems.Count(); j++)
-            //        {
-            //            int xtipoMenu = lstMenuItems[j].IDTipoMenu;
-            //            switch (xtipoMenu)
-            //            {
-            //                case 1: /*OPCION  MENU*/
-            //                    objHTML.Append("<a href=\"" + lstMenuItems[j].Enlace + "\" class=\"dropdown-item ml-3\">");
-            //                    if (!string.IsNullOrEmpty(lstMenuItems[j].Imagen))
-            //                    {
-            //                        objHTML.Append("<span class=\"fa icono-menu " + lstMenuItems[j].Imagen + " float-left pt-1 mr-1\"></span>");
-            //                    }
-            //                    objHTML.Append(lstMenuItems[j].Nombre + "</a>");
-            //                    break;
-            //                case 2: /*SEPARADOR*/
-            //                    objHTML.Append("<div class=\"dropdown-divider\"></div>");
-            //                    break;
-            //                case 3: /*ENCABEZADO*/
-            //                    objHTML.Append("<a href=\"" + lstMenuItems[j].Enlace + "\" class=\"dropdown-item disabled\" style=\"font-size: 10px;\">");
-            //                    if (!string.IsNullOrEmpty(lstMenuItems[j].Imagen))
-            //                    {
-            //                        objHTML.Append("<span class=\"fa icono-menu " + lstMenuItems[j].Imagen + " float-left pt-1 mr-1\"></span>");
-            //                    }
-            //                    objHTML.Append(lstMenuItems[j].Nombre + " </a>");
-            //                    break;
-            //            }
-            //        }
-            //        objHTML.Append("</div>");
-            //    }
-            //    objHTML.Append("</li>");
-            //}
-            //objHTML.Append("</ul>");
-
-            //if (objHTML.Length > 0)
-            //{
-            //    string capetaMenu = Path.Combine(strUbicacionServer, "MenuUsuario");
-            //    if (!Directory.Exists(capetaMenu))
-            //    {
-            //        Directory.CreateDirectory(capetaMenu);
-            //    }
-            //    /*DEBE EXISTIR LA RUTA*/
-            //    if (Directory.Exists(capetaMenu))
-            //    {
-            //        string strNombreCarpeta = "Menu_" + objUsuario.ID.ToString() + ".html";
-            //        string strRutaCompleta = Path.Combine(capetaMenu, strNombreCarpeta);
-            //        if (File.Exists(strRutaCompleta))
-            //        {
-            //            File.Delete(strRutaCompleta);
-            //        }
-            //        System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-            //        byte[] byteCadena = encoding.GetBytes(objHTML.ToString());
-            //        FileStream strArchivo = File.Create(strRutaCompleta, byteCadena.Length, FileOptions.None);
-            //        strArchivo.Write(byteCadena, 0, byteCadena.Length);
-            //        strArchivo.Close();
-            //        strArchivo.Dispose();
-
-            //        /*ASIGA CADENA A OBJETO SE SESSION*/
-            //        objUsuario.CadenaMenuUsuario = strRutaCompleta;
-            //    }
-            //}
-        }
         #endregion
 
 

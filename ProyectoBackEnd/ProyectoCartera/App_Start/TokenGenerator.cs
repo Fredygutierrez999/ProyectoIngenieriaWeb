@@ -11,7 +11,7 @@ namespace ProyectoCartera.App_Start
     /// </summary>
     internal static class TokenGenerator
     {
-        public static string GenerateTokenJwt(string username, string rolname)
+        public static string GenerateTokenJwt(string username, string rolname, string IDUsuario)
         {
             //TODO: appsetting for Demo JWT - protect correctly this settings
             var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
@@ -25,7 +25,8 @@ namespace ProyectoCartera.App_Start
             // create a claimsIdentity 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, rolname)
+                new Claim(ClaimTypes.Role, rolname),
+                new Claim(ClaimTypes.Sid, IDUsuario)
             });
 
             // create token to the user 
