@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <h2>
+            REGISTRARSE
+        </h2>
+    </div>
+    <div class="col-md-12 col-xs-12" ng-app="myAplicacion" ng-controller="ctrSeguridad">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <section class="sec-60">
+                        <figure>
+                            <h2>AGILEPAY</h2>
+                            <img src="~/img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="150" height="150" class="CentradoAutomatico" />
+                        </figure>
+                        <p>
+                            <strong>AGILEPAY</strong> respeta su privacidad y se compromete a proteger sus datos
+                            personales. En nuestra política de privacidad le informaremos sobre cómo cuidamos sus
+                            datos
+                            personales cuando visita uno de nuestros sitios web (independientemente de dónde lo
+                            visite) y le informa sobre sus derechos de privacidad y cómo la ley lo protege.
+                        </p>
+                    </section>
+                    <section class="sec-40">
+                        <div class="SeccionRegistro CentradoAutomatico">
+                            <small>Datos de registro</small><br /><br />
+                            <label>Tipo identificación</label><br />
+                            <select ng-model="tipo_identificacion">
+                                <option value="CC">Cédula de ciudadania</option>
+                                <option value="TI">Tarjeta de identidad</option>
+                                <option value="PA">Pasaporte</option>
+                            </select>
+                            <br />
+                            <label>Identificación</label><br />
+                            <input type="number" ng-model="identificacion" placeholder="Número identificación" required /><br />
+                            <label>Nombres</label><br />
+                            <input type="text" ng-model="Nombre" placeholder="Nombres" required /><br />
+                            <label>Apellidos</label><br />
+                            <input type="text" ng-model="Apellido" placeholder="Apellidos" required /><br />
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <section class="sec-40">
+                        <div class="SeccionRegistro CentradoAutomatico">
+                            <!--Captura datos de registro-->
+
+                            <label>Correo electrónico</label><br />
+                            <input type="email" ng-model="email" placeholder="Correo electrónico" required />
+
+                            <label>Fecha nacimiento</label><br />
+                            <input type="date" ng-model="fecha_nacimiento" placeholder="Fecha nacimiento" required />
+
+                            <label>Genero</label><br />
+                            <select ng-model="genero">
+                                <option selected value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                            </select>
+
+                            <label>Clave</label><br />
+                            <input type="password" ng-model="Contrasena" placeholder="Contraseña" required />
+
+                            <label>Confirmar clave</label><br />
+                            <input type="password" ng-model="Contrasena_Transaccion" placeholder="Confirmar contraseña" required />
+
+                            <br />
+                            <br />
+                            <input type="checkbox" required ng-checked="AceptaTerminos" ng-model="AceptaTerminos" />
+                            <a href="Registrao.hmtl">Acepto términos</a>
+                            <br />
+                            <br />
+                            <div class="btn btn-success" ng-click="funGuardarUsuario()">
+                                Ingresar
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

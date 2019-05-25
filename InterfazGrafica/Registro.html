@@ -110,7 +110,7 @@
                                         </select>
                                         <br />
                                         <label>Identificación</label><br />
-                                        <input type="text" ng-model="identificacion" placeholder="Número identificación" required /><br />
+                                        <input type="number" ng-model="identificacion" placeholder="Número identificación" required /><br />
                                         <label>Nombres</label><br />
                                         <input type="text" ng-model="Nombre" placeholder="Nombres" required /><br />
                                         <label>Apellidos</label><br />
@@ -139,7 +139,7 @@
 
                                         <br />
                                         <br />
-                                        <input type="checkbox" required />
+                                        <input type="checkbox" required ng-checked="AceptaTerminos" ng-model="AceptaTerminos" />
                                         <a href="Registrao.hmtl">Acepto términos</a>
                                         <div class="btn" ng-click="funGuardarUsuario()">
                                             Ingresar

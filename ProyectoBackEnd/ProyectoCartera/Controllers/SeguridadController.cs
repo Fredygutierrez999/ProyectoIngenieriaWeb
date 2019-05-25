@@ -15,14 +15,14 @@ namespace ProyectoCartera.Controllers
     /// </summary>
     [AllowAnonymous]
     [RoutePrefix("api/Seguridad")]
-    public class SeguridadController : ApiController
+    public class SeguridadesController : ApiController
     {
         private DataSeguridad objDataSeguridad;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public SeguridadController()
+        public SeguridadesController()
         {
             this.objDataSeguridad = new DataSeguridad();
         }
@@ -43,21 +43,40 @@ namespace ProyectoCartera.Controllers
         /// Indica si el usuario se encuentra registrado
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        //[HttpPost]
+        //[Route("echouser")]
+        //public IHttpActionResult EchoUser()
+        //{
+        //    var identity = Thread.CurrentPrincipal.Identity;
+        //    return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
+        //}
+        [HttpPost]
         [Route("echouser")]
-        public IHttpActionResult EchoUser()
+        public ResultadoJSON EchoUser()
         {
             var identity = Thread.CurrentPrincipal.Identity;
-            return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
+            if (identity.IsAuthenticated)
+            {
+                DataSeguridad objSeguridad = new DataSeguridad();
+                Datos.resultadoObjetos objResultado = objSeguridad.ConsultaUsuariosXNombre(identity.Name);
+                if (objResultado.ResultadoProceso)
+                {
+                    return new ResultadoJSON() { ResultadoProceso = true, objetoData = objResultado.objetoData };
+                }
+                else
+                {
+                    return new ResultadoJSON() { ResultadoProceso = false };
+                }
+            }
+            return new ResultadoJSON() { ResultadoProceso = identity.IsAuthenticated };
         }
-
 
         /// <summary>
         /// Autentica el usuario por nombre y clave
         /// </summary>
         /// <param name="login">Objeto usuario</param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         [Route("authenticate")]
         public IHttpActionResult Authenticate(string Nombre_Usuario, string Contrasena)
         {
@@ -93,10 +112,10 @@ namespace ProyectoCartera.Controllers
         /// Autentica el usuario por nombre y clave
         /// </summary>
         /// <param name="login">Objeto usuario</param>
-        /// <returns></returns>
+        /// <returns></returns> 
         [HttpGet]
         [Route("registrar")]
-        public IHttpActionResult registrar(
+        public ResultadoJSON registrar(
             int identificacion,
             string tipo_identificacion,
             string Nombre_Usuario,
@@ -106,10 +125,11 @@ namespace ProyectoCartera.Controllers
             string Apellido,
             string genero,
             string email,
-            string fecha_nacimiento
+            string fecha_nacimiento,
+            bool AceptaTerminos
         )
         {
-            ResultadoJSON _resultado = null;
+            ResultadoJSON _resultadoHttp = null;
             try
             {
                 Usuarios login = new Usuarios()
@@ -123,27 +143,27 @@ namespace ProyectoCartera.Controllers
                     Apellido = Apellido,
                     genero = genero,
                     email = email,
-                    fecha_nacimiento = Convert.ToDateTime(fecha_nacimiento)
+                    fecha_nacimiento = Convert.ToDateTime(fecha_nacimiento),
+                    AceptaTerminos = AceptaTerminos
                 };
 
                 ///Valida usuario en la BD
-                var _respuesta = this.objDataSeguridad.ValidarUsuario(login);
+                var _respuesta = this.objDataSeguridad.UsuariosGuardar(login);
                 if (_respuesta.ResultadoProceso)
                 {
-                    var token = TokenGenerator.GenerateTokenJwt(login.Nombre_Usuario, login.Tipo_Usuario.ToString(),login.identificacion.ToString());
-                    _resultado = new ResultadoJSON() { ResultadoProceso = true, objetoData = token };
+                    _resultadoHttp = new ResultadoJSON() { ResultadoProceso = true, CadenaError = _respuesta.CadenaError, objetoData = "" };
                 }
                 else
                 {
-                    _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = _resultado.CadenaError };
+                    _resultadoHttp = new ResultadoJSON() { ResultadoProceso = false, CadenaError = _respuesta.CadenaError };
                 }
 
             }
             catch (Exception ex)
             {
-                _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = ex.Message };
+                _resultadoHttp = new ResultadoJSON() { ResultadoProceso = false, CadenaError = ex.Message };
             }
-            return Json(_resultado);
+            return _resultadoHttp;
         }
 
     }

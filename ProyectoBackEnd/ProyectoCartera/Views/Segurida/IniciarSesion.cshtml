@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid" ng-controller="ctrSeguridad" ng-init="fun_validaSesion()">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 contenidoCentrado" style="">
+            <section>
+                <!--Sección de login-->
+                <div class="SeccionLogin CentradoAutomatico">
+                    <h3>
+                        <small>BIENVENIDO A</small> <BR>AGILEPAY
+                    </h3>
+                    <figure>
+                        <img src="~/img/Banco de Iconos/010_Logo_Empresa.svg" alt="Logo Agilepay" width="150"
+                             height="150" />
+                    </figure>
+                    <!--Captura datos de inicio de sesión-->
+                    <form action="Dashboard Vision General_2.html">
+                        <label>Usuario</label><br />
+                        <input type="text" ng-model="Nombre_Usuario" /><br />
+                        <label>Clave</label><br />
+                        <input type="password" ng-model="Contrasena" /><br /><br />
+                        <a href="Registro.html" style="text-align:center">¿No estás registrado ?</a> <br />
+
+                    </form>
+                    <div style="text-align: center">
+                        <div ng-click="funValidarUsuario()">
+                            <button class="btn">
+                                <span class="glyphicon glyphicon-user"></span> Ingresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

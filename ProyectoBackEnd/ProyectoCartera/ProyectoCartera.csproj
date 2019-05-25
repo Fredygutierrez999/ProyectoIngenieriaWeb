@@ -184,6 +184,8 @@
     <Compile Include="App_Start\TokenValidationHandler.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PanelDeControlController.cs" />
+    <Compile Include="Controllers\SeguridaController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,15 +202,46 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\buttons.css" />
+    <Content Include="Content\cargardinero.css" />
+    <Content Include="Content\dashboardgeneral.css" />
+    <Content Include="Content\enviardinero.css" />
+    <Content Include="Content\footer.css" />
     <Content Include="Content\Iconos\all.min.css" />
+    <Content Include="Content\inputs.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\sitio.css" />
     <Content Include="Content\util.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\Banco de Iconos\010_Logo_Empresa.svg" />
+    <Content Include="img\Banco de Iconos\020_Consultar_Cuentas.svg" />
+    <Content Include="img\Banco de Iconos\030_Recargar_Saldo.svg" />
+    <Content Include="img\Banco de Iconos\040_Retirar_Dinero.svg" />
+    <Content Include="img\Banco de Iconos\050_Enviar_Dinero.svg" />
+    <Content Include="img\Banco de Iconos\060_Ver_Movimientos.svg" />
+    <Content Include="img\Banco de Iconos\070_Incidencia.svg" />
+    <Content Include="img\Banco de Iconos\080_USD_Money.svg" />
+    <Content Include="img\Banco de Iconos\090_Bitcoin_Money.svg" />
+    <Content Include="img\Banco de Iconos\100_Tarjeta_Credito.svg" />
+    <Content Include="img\Banco de Iconos\110_Transferencia_Bancaria.svg" />
+    <Content Include="img\Banco de Iconos\120_Cupon.svg" />
+    <Content Include="img\Banco de Iconos\130_Actualizar_Comisiones.svg" />
+    <Content Include="img\Banco de Iconos\140_Eliminar_Usuario.svg" />
+    <Content Include="img\Banco de Iconos\150_Solucion_Incidencias.svg" />
+    <Content Include="img\Banco de Iconos\160_Total_Comisiones_Ganadas.svg" />
+    <Content Include="img\Banco de Iconos\170_Todo_Consulta_Movimientos.svg" />
+    <Content Include="img\Banco de Imagenes\10_Comercio_En_Linea.jpg" />
+    <Content Include="img\Banco de Imagenes\20_Seguridad_Transacciones.jpg" />
+    <Content Include="img\Banco de Imagenes\30_Alternativas_Recarga_Saldos.jpg" />
+    <Content Include="img\Banco de Imagenes\40_TrabajamosConBitcoin.jpg" />
+    <Content Include="img\Banco de Imagenes\50_Billetera_Digital.jpg" />
+    <Content Include="img\Banco de Imagenes\myAvatar.svg" />
     <Content Include="Scripts\all.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Aplicacion.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -216,6 +249,7 @@
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\ControladorJS\SeguridadControlador.js" />
+    <Content Include="Scripts\GestorMensajes.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -238,11 +272,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Seguridad\IniciarSesion.cshtml" />
     <Content Include="Views\Shared\_Layout_Login.cshtml" />
+    <Content Include="Views\Segurida\Registrarse.cshtml" />
+    <Content Include="Views\Segurida\IniciarSesion.cshtml" />
+    <Content Include="Views\Home\TerminosDeUso.cshtml" />
+    <Content Include="Views\Home\PoliticaPrivacidad.cshtml" />
+    <Content Include="Views\PanelDeControl\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-4 col-xs-12" style="margin-top:50px">
+        <section class="centrado">
+            <figure>
+                <img src="~/img/Banco de Imagenes/myAvatar.svg" alt="Logo de perfil" width="50%" height="25%"
+                     class="fotoPerfil img-responsive CentradoAutomatico" />
+            </figure>
+            <label>Nombre:</label>
+            <small>
+                {{Usuario.Nombre}}
+            </small> <br />
+            <label>Apellido:</label> <small>
+                {{Usuario.Apellido}}
+            </small> <br />
+            <label>Correo electrónico:</label> <small>
+                {{Usuario.email}}
+            </small> <br />
+
+            <br />
+            <br />
+            <a class="btn" href="CrearIncidencia.html">
+                <span class="glyphicon glyphicon-inbox"></span>
+                Crear incidencia
+            </a>
+
+        </section>
+    </div>
+    <div class="col-md-8 col-xs-12">
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <article class="iconos CentradoAutomatico">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/020_Consultar_Cuentas.svg" alt="Logo Agilepay"
+                             width="80" height="80" class="img-responsive CentradoAutomatico" />
+                        <figcaption>
+                            <a class="btn" href="ConsultaCuentas.html">
+                                <span class="glyphicon glyphicon-search"></span>
+                                Consultar Cuentas
+                            </a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <article class="iconos CentradoAutomatico">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/060_Ver_Movimientos.svg" alt="Logo Agilepay" width="80"
+                             height="80" class="img-responsive CentradoAutomatico" />
+                        <figcaption>
+                            <a class="btn" href="VerMovimientos.html">
+                                <span class="glyphicon glyphicon-list"></span>
+                                Ver movimientos
+                            </a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <article class="iconos CentradoAutomatico">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/050_Enviar_Dinero.svg" alt="Logo Agilepay" width="80"
+                             height="80" class="img-responsive CentradoAutomatico" />
+                        <figcaption>
+                            <a class="btn" href="Enviar Dinero.html">
+                                <span class="glyphicon glyphicon-send"></span>
+                                Enviar dinero
+                            </a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <article class="iconos CentradoAutomatico">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/030_Recargar_Saldo.svg" alt="Logo Agilepay" width="80"
+                             height="80" class="img-responsive CentradoAutomatico" />
+                        <figcaption>
+                            <a class="btn" href="Cargar Dinero.html">
+                                <span class="glyphicon glyphicon-upload"></span>
+                                Cargar dinero
+                            </a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <div class="col-md-6 col-xs-6" style="margin-bottom:50px">
+                <article class="iconos CentradoAutomatico">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/040_Retirar_Dinero.svg" alt="Logo Agilepay" width="80"
+                             height="80" class="img-responsive CentradoAutomatico" />
+                        <figcaption>
+                            <a class="btn" href="RetirarDinero.html">
+                                <span class="glyphicon glyphicon-download"></span>
+                                Retirar dinero
+                            </a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+
+
+        </div>
+    </div>
+</div>

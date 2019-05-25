@@ -53,13 +53,13 @@ myApp.controller('ctrSeguridad', ['$scope', '$http', function ($scope, $http) {
             Nombre_Usuario: $scope.Nombre_Usuario,
             Contrasena: $scope.Contrasena
         }
-        $http.post(strDireccion + "Seguridad/authenticate" + parametrosGet("",objDato)).then(
+        $http.post("Api/Seguridad/authenticate" + parametrosGet("",objDato)).then(
             function (request) {
                 var data = request.data;
                 if (data.ResultadoProceso) {
                     $scope.Responsables = data.objetoData;
                 } else {
-                    mostrarMensaje(data.TipoMensaje, data.CadenaError);
+                    mostrarMensaje(1, data.CadenaError);
                 }
             },
             function (data) {
@@ -85,16 +85,16 @@ myApp.controller('ctrSeguridad', ['$scope', '$http', function ($scope, $http) {
             email : $scope.email,
             fecha_nacimiento : $scope.fecha_nacimiento
         }
-        $http.get(strDireccion + "Seguridad/registrar" + parametrosGet("", objDato)).then(
+        $http.get("Api/Seguridad/registrar" + parametrosGet("", objDato)).then(
             function (request) {
                 var data = request.data;
                 if (data.ResultadoProceso) {
                     $scope.Responsables = data.objetoData;
                 } else {
-                    mostrarMensaje(data.TipoMensaje, data.CadenaError);
+                    mostrarMensaje(1, data.CadenaError);
                 }
             },
-            function (data) {
+            function (data, param, param2) {
                 mostrarMensaje(2, data.message);
             }
         )

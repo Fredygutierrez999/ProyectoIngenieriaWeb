@@ -78,24 +78,77 @@ namespace ProyectoCartera.Models.ControladorDeDatos
         private List<string> validaDatosUsuario(Usuarios objUsuarios)
         {
             List<string> lstErrores = new List<string>();
-
-            if (string.IsNullOrEmpty(objUsuarios.Nombre_Usuario))
+            if (objUsuarios.identificacion == 0)
             {
-                lstErrores.Add("Debe ingresar el usuario de ingreso al sistema");
+                lstErrores.Add("Debe ingresar el número de identificación.");
+            }
+            else
+            {
+                if (validaExistenciaUsuario(objUsuarios.identificacion).ResultadoProceso)
+                {
+                    lstErrores.Add("El usuario ya existe.");
+                }
+            }
+            if (string.IsNullOrEmpty(objUsuarios.tipo_identificacion))
+            {
+                lstErrores.Add("Debe seleccionar un tipo de identificación");
             }
             if (string.IsNullOrEmpty(objUsuarios.Nombre))
             {
                 lstErrores.Add("Debe ingresar el nombre del usuario");
             }
+            if (string.IsNullOrEmpty(objUsuarios.Apellido))
+            {
+                lstErrores.Add("Debe ingresar el apellido del usuario");
+            }
             if (string.IsNullOrEmpty(objUsuarios.Contrasena))
             {
                 lstErrores.Add("Debe ingresar la contraseña.");
             }
+            if (objUsuarios.Contrasena != objUsuarios.Contrasena_Transaccion)
+            {
+                lstErrores.Add("La confirmación de la clave no es la misma.");
+            }
             if (string.IsNullOrEmpty(objUsuarios.email))
             {
-                lstErrores.Add("Debe ingresar el cooreo electrónico");
+                lstErrores.Add("Debe ingresar el correo electrónico");
+            }
+            if (objUsuarios.fecha_nacimiento == DateTime.MinValue)
+            {
+                lstErrores.Add("Debe índicar una fecha de nacimiento valida");
+            }
+            if (objUsuarios.AceptaTerminos == false)
+            {
+                lstErrores.Add("Debe aceptar términos y condiciones");
             }
             return lstErrores;
+        }
+
+        /// <summary>
+        /// Metodo utilizado para validar existencia de usuario
+        /// </summary>
+        /// <param name="xIdentificacion"></param>
+        /// <returns></returns>
+        public resultadoObjetos validaExistenciaUsuario(long xIdentificacion)
+        {
+            resultadoObjetos objResData = new resultadoObjetos();
+            try
+            {
+                this.Comando = "pa_Usuarios_Administrar_Validacion";
+                this.AgregarParametro("@identificacion", xIdentificacion);
+                resultado objResultado = this.TablaResultado();
+                if (objResultado.ResultadoProceso)
+                {
+                    DataTable dttUsuario = objResultado.Data;
+                    objResData.ResultadoProceso = dttUsuario.Rows.Count > 0;
+                }
+                objResData.set(objResultado);
+            }
+            catch (Exception ex)
+            {
+                objResData.cargarError(ex);
+            }
+            return objResData;
         }
 
         /// <summary>
@@ -126,8 +179,7 @@ namespace ProyectoCartera.Models.ControladorDeDatos
                     if (objResultado.ResultadoProceso)
                     {
                         DataTable dttUsuario = objResultado.Data;
-                        this.asigarDatosDesdeDatatable(objUsuario, dttUsuario);
-                        objResultado.CadenaError = objUsuario.Nombre;
+                        this.asigarDatosDesdeDatatable(objResultado, dttUsuario);
                     }
                     objResData.set(objResultado);
                     objResData.objetoData = objUsuario;
@@ -151,33 +203,23 @@ namespace ProyectoCartera.Models.ControladorDeDatos
         /// </summary>
         /// <param name="xID"></param>
         /// <returns></returns>
-        public resultadoObjetos ConsultaUsuariosXID(int xID)
+        public resultadoObjetos ConsultaUsuariosXNombre(string xNombreUsuario)
         {
             resultadoObjetos objResData = new resultadoObjetos();
             try
             {
-                List<Usuarios> lstUsuario = new List<Usuarios>();
-                this.Comando = "pa_AppNetUsuarios_ConsultaXid";
-                this.AgregarParametro("@IDAppNetUsuarios", xID);
+                Usuarios objUsuarios = new Usuarios();
+                this.Comando = "pa_Usuarios_ConsultaUsuario";
+                this.AgregarParametro("@Nombre_Usuario", xNombreUsuario);
                 resultado objResultado = this.TablaSetResultado();
                 if (objResultado.ResultadoProceso)
                 {
                     DataTable dttUsuarios = objResultado.DataSet.Tables[0];
-                    //DataTable dttRoles = objResultado.DataSet.Tables[1];
-                    //DataTable dttPermisos = objResultado.DataSet.Tables[2];
-                    //DataTable dttMenus = objResultado.DataSet.Tables[3];
-
-                    Usuarios objUsuarios = new Usuarios();
                     this.asigarDatosDesdeDatatable(objUsuarios, dttUsuarios);
-                    //this.asigarDatosDesdeDatatable(objUsuarios.lstRoles, dttRoles);
-                    //this.asigarDatosDesdeDatatable(objUsuarios.Permisos, dttPermisos);
-                    //this.asigarDatosDesdeDatatable(objUsuarios.Menus, dttMenus);
-
-                    lstUsuario.Add(objUsuarios);
                 }
 
                 objResData.set(objResultado);
-                objResData.objetoData = lstUsuario;
+                objResData.objetoData = objUsuarios;
             }
             catch (Exception ex)
             {

@@ -24,6 +24,7 @@ namespace ProyectoCartera.Models.ModeloClases.Seguridad
         public string email { get; set; }
         public DateTime fecha_nacimiento { get; set; }
         public int Tipo_Usuario { get; set; }
+        public bool AceptaTerminos { get; set; }
 
         /// <summary>
         /// Constructor
