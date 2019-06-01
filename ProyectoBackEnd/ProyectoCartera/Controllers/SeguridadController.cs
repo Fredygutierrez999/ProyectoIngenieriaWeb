@@ -96,7 +96,7 @@ namespace ProyectoCartera.Controllers
                 }
                 else
                 {
-                    _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = _resultado.CadenaError };
+                    _resultado = new ResultadoJSON() { ResultadoProceso = false, CadenaError = _respuesta.CadenaError };
                 }
             }
             catch (Exception ex)

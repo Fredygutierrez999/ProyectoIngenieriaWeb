@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dashboard visión general";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
@@ -10,6 +10,8 @@
                 <img src="~/img/Banco de Imagenes/myAvatar.svg" alt="Logo de perfil" width="50%" height="25%"
                      class="fotoPerfil img-responsive CentradoAutomatico" />
             </figure>
+            <br />
+            <br />
             <label>Nombre:</label>
             <small>
                 {{Usuario.Nombre}}
@@ -17,13 +19,20 @@
             <label>Apellido:</label> <small>
                 {{Usuario.Apellido}}
             </small> <br />
-            <label>Correo electrónico:</label> <small>
+            <label>Correo electrónico:</label>
+            <small>
                 {{Usuario.email}}
+            </small> <br />
+            <label>Cantidad incidencias:</label>
+            <small>
+                <span class="badge bg-info">
+                    {{Usuario.IncidenciasReportadas}}
+                </span>
             </small> <br />
 
             <br />
             <br />
-            <a class="btn" href="CrearIncidencia.html">
+            <a class="btn-Item" href="~/PanelDeControl/CreacionIncidencia">
                 <span class="glyphicon glyphicon-inbox"></span>
                 Crear incidencia
             </a>
@@ -38,7 +47,7 @@
                         <img src="~/img/Banco de Iconos/020_Consultar_Cuentas.svg" alt="Logo Agilepay"
                              width="80" height="80" class="img-responsive CentradoAutomatico" />
                         <figcaption>
-                            <a class="btn" href="ConsultaCuentas.html">
+                            <a class="btn-Item" href="~/PanelDeControl/ConsultarCuentas">
                                 <span class="glyphicon glyphicon-search"></span>
                                 Consultar Cuentas
                             </a>
@@ -52,7 +61,7 @@
                         <img src="~/img/Banco de Iconos/060_Ver_Movimientos.svg" alt="Logo Agilepay" width="80"
                              height="80" class="img-responsive CentradoAutomatico" />
                         <figcaption>
-                            <a class="btn" href="VerMovimientos.html">
+                            <a class="btn-Item" href="~/PanelDeControl/VerMovimientos">
                                 <span class="glyphicon glyphicon-list"></span>
                                 Ver movimientos
                             </a>
@@ -68,7 +77,7 @@
                         <img src="~/img/Banco de Iconos/050_Enviar_Dinero.svg" alt="Logo Agilepay" width="80"
                              height="80" class="img-responsive CentradoAutomatico" />
                         <figcaption>
-                            <a class="btn" href="Enviar Dinero.html">
+                            <a class="btn-Item" href="~/PanelDeControl/EnviarDinero">
                                 <span class="glyphicon glyphicon-send"></span>
                                 Enviar dinero
                             </a>
@@ -85,7 +94,7 @@
                         <img src="~/img/Banco de Iconos/030_Recargar_Saldo.svg" alt="Logo Agilepay" width="80"
                              height="80" class="img-responsive CentradoAutomatico" />
                         <figcaption>
-                            <a class="btn" href="Cargar Dinero.html">
+                            <a class="btn-Item" href="~/PanelDeControl/CargarDinero">
                                 <span class="glyphicon glyphicon-upload"></span>
                                 Cargar dinero
                             </a>
@@ -99,7 +108,7 @@
                         <img src="~/img/Banco de Iconos/040_Retirar_Dinero.svg" alt="Logo Agilepay" width="80"
                              height="80" class="img-responsive CentradoAutomatico" />
                         <figcaption>
-                            <a class="btn" href="RetirarDinero.html">
+                            <a class="btn-Item" href="~/PanelDeControl/RetirarDinero">
                                 <span class="glyphicon glyphicon-download"></span>
                                 Retirar dinero
                             </a>

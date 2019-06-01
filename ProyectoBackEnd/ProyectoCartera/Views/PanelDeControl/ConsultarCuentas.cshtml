@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Consultar cuentas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-controller="ctrConsultarSaldo" ng-init="fun_Consultar()">
+    <h3 style="text-align: center">CONSULTAR SALDO CUENTAS</h3>
+    <h3> <small>Bienvenido a la seccion para consultar el saldo en la cuenta</small></h3>
+    <div class="col-md-6 col-xs-12">
+        <label style="text-align: center">Seleccione la cuenta</label><br>
+        <br />
+        <div class="cajaCuentas cuentasCentrado">
+            <div class="cajaCuenta" ng-class="(moneda_movimiento=='USD'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_USD()">
+                <figure>
+                    <img src="~/img/Banco de Iconos/080_USD_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                    <figcaption>
+                        <p style="color:black">
+                            <input type="radio" ng-checked="moneda_movimiento =='USD'" ng-model="moneda_movimiento" value="USD" name="rbTMoneda" />
+                            USD
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="cajaCuenta" ng-class="(moneda_movimiento=='BTC'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_BTC()">
+                <figure>
+                    <img src="~/img/Banco de Iconos/090_Bitcoin_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                    <figcaption>
+                        <p style="color:black">
+                            <input type="radio" ng-checked="moneda_movimiento =='BTC'" ng-model="moneda_movimiento" value="BTC" name="rbTMoneda" />
+                            BTC
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <br />
+        <label style="text-align: center">Información de cuenta</label>
+        <div class="row">
+            <div class="col-md-5 text-right">
+                Número cuenta:
+            </div>
+            <div class="col-md-7 ">
+                {{NumeroCuenta}}
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <section>
+            <label for="">Saldo Actual</label> <br>
+            <div class="mostrarSaldo">
+                <span> {{SaldoCuenta | number}} - {{tipo_saldo}} </span>
+            </div><br>
+            <label for="">Saldo Convertido</label> <br>
+            <div class="mostrarSaldoConvertido">
+                <span> {{SaldoConvertido | number}} USD </span>
+            </div><br>
+            <div class="table-responsive">
+                <table class="table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Fecha movimientos</th>
+                            <th>Monto</th>
+                            <th>Tipo movimiento</th>
+                            <th>Comisión</th>
+                            <th>Saldo a cuenta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="obj in Movimientos">
+                            <td>{{obj.fecha_hora}}</td>
+                            <td>{{obj.monto | number}}</td>
+                            <td>
+                                {{obj.NombreTipoMovimiento}}
+                            </td>
+                            <td>
+                                {{obj.Valor_Comision | number}}
+                            </td>
+                            <td>
+                                {{obj.SaldoDespMovimiento | number}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

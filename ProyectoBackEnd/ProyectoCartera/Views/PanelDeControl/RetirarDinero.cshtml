@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "RetirarDinero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="ctrRetirarDinero">
+    <div class="row">
+        <h3>
+            Retirar dinero
+        </h3>
+        <h5>
+            <small>Seleccione cuenta de la cual desea retirar </small>
+        </h5>
+        <div class="col-md-12 col-xs-12">
+
+            <div class="cajaCuentas cuentasCentrado">
+                <div class="cajaCuenta" ng-class="(moneda_movimiento=='USD'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_USD()">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/080_USD_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                        <figcaption>
+                            <p style="color:black">
+                                <input type="radio" ng-checked="moneda_movimiento =='USD'" ng-model="moneda_movimiento" value="USD" name="rbTMoneda" />
+                                USD
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="cajaCuenta" ng-class="(moneda_movimiento=='BTC'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_BTC()">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/090_Bitcoin_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                        <figcaption>
+                            <p style="color:black">
+                                <input type="radio" ng-checked="moneda_movimiento =='BTC'" ng-model="moneda_movimiento" value="BTC" name="rbTMoneda" />
+                                BTC
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <!--Captura datos de retiro de saldo-->
+            <div class="SeccionRegistro">
+                <h3>Saldo a retirar</h3>
+                <label>Disponible</label><br />
+                <div class="mostrarSaldo">
+                    <span> 100 usd </span>
+                </div>
+                <label>Retirar</label><br />
+                <input type="text" ng-model="monto" /><br />
+                <h3>Seleccionar metodo de retiro</h3>
+                <div class=" cajaCuentas cuentasCentrado">
+                    <div class="cajaCuentaRetiro" ng-class="(tipo_movimiento=='PDTM'?'cajaSeleccionada':'')" ng-click="fun_SeleccionarMetodoRecarga_PDTM()">
+                        <figure>
+                            <img src="~/img/Banco de Iconos/100_Tarjeta_Credito.svg" alt="" width="50" height="50">
+                            <figcaption>
+                                <p style="color:black">
+                                    <input type="radio" ng-checked="tipo_movimiento =='PDTM'" ng-model="tipo_movimiento" value="PDTM" name="rbTipoMetoto" />
+                                    Carga tarjeta
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cajaCuentaRetiro" ng-class="(tipo_movimiento=='TRBC'?'cajaSeleccionada':'')" ng-click="fun_SeleccionarMetodoRecarga_TRBC()">
+                        <figure>
+                            <img src="~/img/Banco de Iconos/110_Transferencia_Bancaria.svg" alt="" width="50" height="50">
+                            <figcaption>
+                                <p style="color:black">
+                                    <input type="radio" ng-checked="tipo_movimiento =='TRBC'" ng-model="tipo_movimiento" value="TRBC" name="rbTipoMetoto" />
+                                    Transferencia
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cajaCuentaRetiro" ng-class="(tipo_movimiento=='CCFR'?'cajaSeleccionada':'')" ng-click="fun_SeleccionarMetodoRecarga_CCFR()">
+                        <figure>
+                            <img src="~/img/Banco de Iconos/120_Cupon.svg" alt="" width="50" height="50">
+                            <figcaption>
+                                <p style="color:black">
+                                    <input type="radio" ng-checked="tipo_movimiento =='CCFR'" ng-model="tipo_movimiento" value="CCFR" name="rbTipoMetoto" />
+                                    Bono
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="sec-40">
+                <div class="SeccionRegistro retirardinero">
+                    <br />
+                    <small>Datos del metodo de Retiro</small><br>
+                    <label ng-hide="!configCtr[tipo_movimiento]['Dato1']" for="">{{configCtr[tipo_movimiento]['strDato1']}}</label>
+                    <input ng-hide="!configCtr[tipo_movimiento]['Dato1']" ng-model="Dato1" type="text" />
+                    <label ng-hide="!configCtr[tipo_movimiento]['Dato2']" for="">{{configCtr[tipo_movimiento]['strDato2']}}</label>
+                    <input ng-hide="!configCtr[tipo_movimiento]['Dato2']" ng-model="Dato2" type="text" /><br>
+                    <label ng-hide="!configCtr[tipo_movimiento]['Dato3']" for="">{{configCtr[tipo_movimiento]['strDato3']}}</label>
+                    <input ng-hide="!configCtr[tipo_movimiento]['Dato3']" ng-model="Dato3" type="text" />
+                    <label ng-hide="!configCtr[tipo_movimiento]['Dato4']" for="">{{configCtr[tipo_movimiento]['strDato4']}}</label>
+                    <input ng-hide="!configCtr[tipo_movimiento]['Dato4']" ng-model="Dato4" type="text" />
+                    <br />
+                </div>
+                <div>
+                    <button ng-click="fun_Guardar()" class="btn" style="float:right;margin-bottom:39px">
+                        <span class="glyphicon glyphicon-download"></span> Retirar saldo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Ver movimientos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row" ng-controller="ctrConsultarMovimientos" ng-init="fun_Consultar()">
+    <div class="col-md-12 col-xs-12">
+        <h3>
+            Ver movimientos
+        </h3>
+        <div class="contenedorCuenta">
+            <section class="cajaCuentas">
+                <section class="cajaCuenta">
+                    <label>Fecha inicial:</label>
+                    <input ng-model="fecha_Inicial" type="date" />
+                </section>
+                <section class="cajaCuenta">
+                    <label>Fecha final:</label>
+                    <input ng-model="fecha_Final" type="date" />
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-xs-12">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="cajaCuentas cuentasCentrado">
+                    <div class="cajaCuenta" ng-class="(moneda_movimiento=='USD'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_USD()">
+                        <figure>
+                            <img src="~/img/Banco de Iconos/080_USD_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                            <figcaption>
+                                <p style="color:black">
+                                    <input type="radio" ng-checked="moneda_movimiento =='USD'" ng-model="moneda_movimiento" value="USD" name="rbTMoneda" />
+                                    USD
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cajaCuenta" ng-class="(moneda_movimiento=='BTC'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_BTC()">
+                        <figure>
+                            <img src="~/img/Banco de Iconos/090_Bitcoin_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                            <figcaption>
+                                <p style="color:black">
+                                    <input type="radio" ng-checked="moneda_movimiento =='BTC'" ng-model="moneda_movimiento" value="BTC" name="rbTMoneda" />
+                                    BTC
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div class="col-md-12 col-xs-12">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="table-responsive text-center table-movimientos">
+                    <table class="table-bordered table-striped" ng-hide="Movimientos.length==0">
+                        <caption>
+                            Resultado de búsqueda <span class="badge bg-info">0</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Fecha movimientos</th>
+                                <th>Monto</th>
+                                <th>Tipo movimiento</th>
+                                <th>Comisión</th>
+                                <th>Saldo a cuenta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obj in Movimientos">
+                                <td>{{obj.fecha_hora}}</td>
+                                <td>
+                                    {{obj.monto | number}}
+                                    <span ng-show="obj.monto > 0" class="glyphicon glyphicon-plus-sign ng-hide" style="color:greenyellow" ></span>
+                                    <span ng-show="obj.monto < 0" class="glyphicon glyphicon-minus-sign  ng-hide" style="color:sandybrown"></span>
+                                </td>
+                                <td>
+                                    {{obj.NombreTipoMovimiento}}
+                                </td>
+                                <td>
+                                    {{obj.Valor_Comision | number}}
+                                </td>
+                                <td>
+                                    {{obj.SaldoDespMovimiento | number}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button ng-click="fun_Consultar()" class="btn" style="float:right;margin-bottom: 50px">
+                    <span class="glyphicon glyphicon-list"></span> Ver movimientos
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

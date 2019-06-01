@@ -34,6 +34,7 @@ nav, .navbar-default {
             text-decoration: none;
             list-style: none;
             float: left;
+            padding-left: 10px !important
         }
 
         nav ul .logo {
@@ -291,7 +292,7 @@ a {
 }
 
 .cajaCuenta {
-    width: auto;
+    width: 250PX;
     min-height: 40px;
     display: inline-block;
     padding: 10px;
@@ -300,6 +301,30 @@ a {
     border-radius: 10px;
     background-color: #62bAAC;
     box-shadow: 5px 5px 15px 0px #695c5c;
+    cursor: pointer;
+    text-align: center
+}
+
+.cajaCuentaRetiro {
+    min-height: 40px;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #62bAAC;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #62bAAC;
+    box-shadow: 5px 5px 15px 0px #695c5c;
+    cursor: pointer;
+    text-align: center
+}
+
+
+figcaption p {
+    text-align: center !important
+}
+
+.cajaSeleccionada {
+    background-color: lightgray !important;
 }
 
 .p10 {
@@ -363,7 +388,7 @@ figure {
     padding-bottom: 20px;
 }
 
-button, .button {
+button, .button, .btn-Item {
     border: 1px solid gray;
     border-radius: 5px;
     background-color: #62bAAC;
@@ -492,7 +517,7 @@ footer {
 }
 
 .ocultar {
-    display:none 
+    display: none
 }
 
 .mostrar {
@@ -500,6 +525,11 @@ footer {
 }
 
 .nav > li > a {
-    padding:0px !important;
-    color:black;
+    padding: 0px !important;
+    color: black;
+}
+.table-movimientos {
+    max-height: 450px !important;
+    height: 400px;
+    overflow-y:auto
 }

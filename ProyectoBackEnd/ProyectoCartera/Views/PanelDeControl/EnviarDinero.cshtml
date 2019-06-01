@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "EnviarDinero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-controller="ctrEnviarDinero">
+    <h2 style="text-align: center">ENVIAR DINERO</h2>
+    <h3> <small>Bienvenido a la seccion para enviar dinero </small></h3>
+    <div class="col-md-6 col-xs-12">
+        <section>
+            <label style="text-align: center">Seleccione cuenta a recargar</label><br>
+            <div class="cajaCuentas cuentasCentrado">
+                <div class="cajaCuenta" ng-class="(moneda_movimiento=='USD'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_USD()">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/080_USD_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                        <figcaption>
+                            <p style="color:black">
+                                <input type="radio" ng-checked="moneda_movimiento =='USD'" ng-model="moneda_movimiento" value="USD" name="rbTMoneda" />
+                                USD
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="cajaCuenta" ng-class="(moneda_movimiento=='BTC'?'cajaSeleccionada':'')" ng-click="fun_TipoMoneda_BTC()">
+                    <figure>
+                        <img src="~/img/Banco de Iconos/090_Bitcoin_Money.svg" alt="" width="70" height="70" class="img-reponsive">
+                        <figcaption>
+                            <p style="color:black">
+                                <input type="radio" ng-checked="moneda_movimiento =='BTC'" ng-model="moneda_movimiento" value="BTC" name="rbTMoneda" />
+                                BTC
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <br />
+            <br />
+            <label style="text-align: center">Monto a enviar</label><br>
+            <input type="text" ng-model="monto" />
+        </section>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <section>
+            <div style="margin-top:10px ;margin-bottom: 35px">
+                <label ng-hide="!configCtr[tipo_movimiento]['Dato1']" for="">{{configCtr[tipo_movimiento]['strDato1']}}</label>
+                <input ng-hide="!configCtr[tipo_movimiento]['Dato1']" ng-model="Dato1" type="text" />
+                <label ng-hide="!configCtr[tipo_movimiento]['Dato2']" for="">{{configCtr[tipo_movimiento]['strDato2']}}</label>
+                <input ng-hide="!configCtr[tipo_movimiento]['Dato2']" ng-model="Dato2" type="text" /><br>
+                <label ng-hide="!configCtr[tipo_movimiento]['Dato3']" for="">{{configCtr[tipo_movimiento]['strDato3']}}</label>
+                <input ng-hide="!configCtr[tipo_movimiento]['Dato3']" ng-model="Dato3" type="text" />
+                <label ng-hide="!configCtr[tipo_movimiento]['Dato4']" for="">{{configCtr[tipo_movimiento]['strDato4']}}</label>
+                <input ng-hide="!configCtr[tipo_movimiento]['Dato4']" ng-model="Dato4" type="text" />
+            </div>
+            <div>
+                <button ng-click="fun_Guardar()" class="btn" style="float:right;margin-bottom:39px">
+                    <span class="glyphicon glyphicon-download"></span> Enviar dinero
+                </button>
+            </div>
+        </section>
+    </div>
+</div>

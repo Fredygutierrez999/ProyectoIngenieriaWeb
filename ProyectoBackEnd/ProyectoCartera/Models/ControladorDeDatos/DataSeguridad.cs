@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using ProyectoCartera.Models.AccesoADatos;
 using ProyectoCartera.Models.ModeloClases.Seguridad;
+using ProyectoCartera.Models.ModeloClases.Contabilidad;
 using System.IO;
 using System.Text;
 
@@ -20,6 +21,7 @@ namespace ProyectoCartera.Models.ControladorDeDatos
 
 
         #region "USUARIOS"
+
         /// <summary>
         /// Metod utilizado para consultar usuarios
         /// </summary>
@@ -227,10 +229,12 @@ namespace ProyectoCartera.Models.ControladorDeDatos
             }
             return objResData;
         }
+
         #endregion
 
 
         #region "VALIDAR SESIÓN"
+
         /// <summary>
         /// Metodo utilizado para validar datos del usuario
         /// </summary>
@@ -296,9 +300,7 @@ namespace ProyectoCartera.Models.ControladorDeDatos
             return objResData;
         }
 
-
         #endregion
-
 
     }
 }

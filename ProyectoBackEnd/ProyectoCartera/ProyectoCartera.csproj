@@ -183,6 +183,7 @@
     <Compile Include="App_Start\TokenGenerator.cs" />
     <Compile Include="App_Start\TokenValidationHandler.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\APIPanelDeControlController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PanelDeControlController.cs" />
     <Compile Include="Controllers\SeguridaController.cs" />
@@ -192,7 +193,11 @@
     </Compile>
     <Compile Include="Models\AccesoADatos\Datos.cs" />
     <Compile Include="Models\AccesoADatos\Dato_Reflectar.cs" />
+    <Compile Include="Models\ControladorDeDatos\DataContabilidad.cs" />
     <Compile Include="Models\ControladorDeDatos\DataSeguridad.cs" />
+    <Compile Include="Models\ModeloClases\Contabilidad\Movimientos.cs" />
+    <Compile Include="Models\ModeloClases\Contabilidad\Saldos.cs" />
+    <Compile Include="Models\ModeloClases\Contabilidad\Solicitudes_Soporte.cs" />
     <Compile Include="Models\ModeloClases\ResultadoJSON.cs" />
     <Compile Include="Models\ModeloClases\Seguridad\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,6 +252,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\ControladorJS\SeguridadControlador.js" />
     <Content Include="Scripts\GestorMensajes.js" />
@@ -281,6 +287,12 @@
     <Content Include="Views\Home\TerminosDeUso.cshtml" />
     <Content Include="Views\Home\PoliticaPrivacidad.cshtml" />
     <Content Include="Views\PanelDeControl\Index.cshtml" />
+    <Content Include="Views\PanelDeControl\CreacionIncidencia.cshtml" />
+    <Content Include="Views\PanelDeControl\EnviarDinero.cshtml" />
+    <Content Include="Views\PanelDeControl\ConsultarCuentas.cshtml" />
+    <Content Include="Views\PanelDeControl\VerMovimientos.cshtml" />
+    <Content Include="Views\PanelDeControl\CargarDinero.cshtml" />
+    <Content Include="Views\PanelDeControl\RetirarDinero.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
